@@ -1,0 +1,25 @@
+<% include partials/header %>
+<div class="container">
+  <h2 class="text-center text-primary">User Registration</h2>
+  <form action="http://localhost:3020/" method="post">
+    <table class="table table-stripped">
+      <tr>
+        <td>First Name</td>
+        <td><input class="form-control" type="text" name="fname" id="fname" /></td>
+      </tr>
+      <tr>
+          <td>Last Name</td>
+          <td><input class="form-control" type="text" name="lname" id="lname" /></td>
+        </tr>
+      <tr>
+        <td>Email</td>
+        <td><input class="form-control" type="text" name="email" id="email" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input class="btn btn-block btn-primary" type="submit" value="Register" /></td>
+      </tr>
+    </table>
+  </form>
+
+  <% include partials/footer %>
+</div>

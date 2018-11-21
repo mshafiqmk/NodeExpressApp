@@ -1,0 +1,18 @@
+<% include partials/header %>
+
+<div class="container">
+    <% users.forEach( (user)=>{ %>
+        <div class="card">
+                <div class="card-header">User # <%= user.id %></div>
+                <div class="card-body">
+                  <h5 class="card-title"><%= user.first_name %> <%= user.last_name %> </h5>
+                  <p class="card-text"> <%= user.email%> </p>
+                  <a class="btn btn-sm btn-primary" href="http://localhost:3020/"
+                    >Update</a
+                  >
+                </div>
+              </div>
+    <% }) %>
+</div >
+
+<% include partials/footer %>
