@@ -1,26 +1,36 @@
-let express= require('express');
-let bodyParser = require('body-parser');
-let path = require('path');
+let express = require("express");
+let bodyParser = require("body-parser");
+let path = require("path");
 
 var app = express();
 
-let logger =(req,res,next)=>{
-    console.log("logging...");
-    next();
-    
-}
-app.use(logger);
+//bodyParser middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/",(req,res)=>{
-    console.log("app with home");
-    res.send("home page get request");
+//set static path
+app.use(express.static(path.join(__dirname, "public")));
+
+let people = [
+  {
+    name: "shafiq",
+    age: 22
+  },
+  {
+    name: "adnan",
+    age: 10
+  },
+  {
+    name: "khan",
+    age: 23
+  }
+];
+
+app.get("/", (req, res) => {
+  console.log("app with home");
+  res.send(people);
 });
 
-app.post("/",(req,res)=>{
-    console.log("app with home post");
-    res.send("home page post request");
-    
-});
-app.listen(3020,()=>{
-    console.log("Server Started at port 3020");
+app.listen(3020, () => {
+  console.log("Server Started at port 3020");
 });
